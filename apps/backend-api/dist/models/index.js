@@ -1,15 +1,8 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-// Example of a model definition
-// export const User = (sequelize: Sequelize) => {
-//   sequelize.define('User', {
-//     username: {
-//       type: DataTypes.STRING,
-//       allowNull: false
-//     },
-//     password: {
-//       type: DataTypes.STRING,
-//       allowNull: false
-//     }
-//   });
-// };
+exports.Student = void 0;
+const Student_1 = __importDefault(require("./Student"));
+exports.Student = Student_1.default;
