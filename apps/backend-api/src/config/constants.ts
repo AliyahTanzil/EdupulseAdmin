@@ -1,0 +1,5 @@
+export const SchoolCategory = {
+  PRIMARY: 'PRIMARY',
+  JUNIOR_SECONDARY: 'JUNIOR_SECONDARY',
+  SENIOR_SECONDARY: 'SENIOR_SECONDARY',
+} as const;
