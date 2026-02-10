@@ -5,12 +5,18 @@ import './index.css';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<MainLayout><AdminDashboard /></MainLayout>} />
-        {/* Add other routes here */}
-      </Routes>
-    </Router>
+    <div className="min-h-screen bg-[#f8fafc]">
+      <Router>
+        <Routes>
+          <Route path="/" element={
+            <div className="max-w-7xl mx-auto p-8">
+              <MainLayout><AdminDashboard /></MainLayout>
+            </div>
+          } />
+          {/* Add other routes here */}
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
