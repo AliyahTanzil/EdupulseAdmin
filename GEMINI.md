@@ -29,6 +29,7 @@ This section will be updated as new features are added.
 -   **Description:** Provides a central hub for administrators with quick access to key management modules.
 -   **Components:**
     -   `DashboardCard`: A reusable card component for dashboard links.
+    -   `StatsBar`: A horizontal bar displaying key statistics.
 -   **Features:**
     -   Student Management
     -   Biometric Attendance

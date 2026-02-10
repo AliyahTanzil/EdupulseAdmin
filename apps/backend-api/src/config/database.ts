@@ -1,4 +1,9 @@
 import { Sequelize } from 'sequelize';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+console.log(`Attempting to connect to DB at ${process.env.DB_HOST}:${process.env.DB_PORT}...`);
 
 const sequelize = new Sequelize({
   dialect: 'postgres',
