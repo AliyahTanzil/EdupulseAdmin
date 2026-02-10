@@ -1,15 +1,17 @@
 import { DataTypes, Model, Optional } from 'sequelize';
 import sequelize from '../config/database';
+import Class from './Class'; // Import Class model
+import { User } from './User'; // Import User model
 
 interface StudentAttributes {
   studentId: string;
   admissionNumber: string;
   firstName: string;
   lastName: string;
-  currentClass: string;
+  currentClassId: string; // Foreign Key to Class model
   gender: string;
   dateOfBirth: Date;
-  parentContact?: string; // Will be linked to User model
+  parentContactId?: number; // Foreign Key to User model
 }
 
 interface StudentCreationAttributes extends Optional<StudentAttributes, 'studentId'> {}
@@ -19,10 +21,10 @@ class Student extends Model<StudentAttributes, StudentCreationAttributes> implem
   public admissionNumber!: string;
   public firstName!: string;
   public lastName!: string;
-  public currentClass!: string;
+  public currentClassId!: string;
   public gender!: string;
   public dateOfBirth!: Date;
-  public parentContact?: string;
+  public parentContactId?: number;
 
   // Timestamps
   public readonly createdAt!: Date;
@@ -49,9 +51,13 @@ Student.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    currentClass: {
-      type: DataTypes.STRING,
+    currentClassId: {
+      type: DataTypes.UUID,
       allowNull: false,
+      references: {
+        model: Class,
+        key: 'classId',
+      },
     },
     gender: {
       type: DataTypes.STRING,
@@ -61,9 +67,13 @@ Student.init(
       type: DataTypes.DATEONLY,
       allowNull: false,
     },
-    parentContact: {
-      type: DataTypes.UUID, // Temporarily UUID, will be foreign key to User model
-      allowNull: true, // Allow null for now, as User model is not yet defined
+    parentContactId: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: User,
+        key: 'id',
+      },
     },
   },
   {
@@ -72,5 +82,8 @@ Student.init(
     timestamps: true,
   }
 );
+
+Student.belongsTo(Class, { foreignKey: 'currentClassId' });
+Student.belongsTo(User, { foreignKey: 'parentContactId' });
 
 export default Student;
