@@ -1,6 +1,7 @@
 import { DataTypes, Model, Optional } from 'sequelize';
 import sequelize from '../config/database';
 import { SchoolCategory } from '../config/constants';
+import { User } from './User'; // Import User model
 
 // Define the valid departments for SENIOR_SECONDARY
 const validDepartments = ['Science', 'Art', 'Commercial'];
@@ -10,7 +11,7 @@ interface ClassAttributes {
   className: string;
   category: keyof typeof SchoolCategory;
   department?: string;
-  formTeacherId: string; // Foreign Key to User/Teacher model
+  formTeacherId: number; // Foreign Key to User model
 }
 
 interface ClassCreationAttributes extends Optional<ClassAttributes, 'classId'> {}
@@ -20,7 +21,7 @@ class Class extends Model<ClassAttributes, ClassCreationAttributes> implements C
   public className!: string;
   public category!: keyof typeof SchoolCategory;
   public department?: string;
-  public formTeacherId!: string;
+  public formTeacherId!: number;
 
   // Timestamps
   public readonly createdAt!: Date;
@@ -57,8 +58,12 @@ Class.init(
       },
     },
     formTeacherId: {
-      type: DataTypes.UUID, // Temporarily UUID, will be foreign key to User model
+      type: DataTypes.INTEGER,
       allowNull: false,
+      references: {
+        model: User,
+        key: 'id',
+      },
     },
   },
   {
@@ -67,5 +72,7 @@ Class.init(
     timestamps: true,
   }
 );
+
+Class.belongsTo(User, { foreignKey: 'formTeacherId' });
 
 export default Class;

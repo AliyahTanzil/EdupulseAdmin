@@ -1,0 +1,44 @@
+{
+  "development": {
+    "username": "DB_USER",
+    "password": "DB_PASSWORD",
+    "database": "DB_NAME",
+    "host": "DB_HOST",
+    "dialect": "postgres",
+    "seederStorage": "sequelize",
+    "migrationStorage": "sequelize",
+    "migrationStorageTableName": "migrations",
+    "seederStorageTableName": "seeders",
+    "define": {
+      "timestamps": true
+    }
+  },
+  "test": {
+    "username": "DB_USER",
+    "password": "DB_PASSWORD",
+    "database": "DB_NAME_TEST",
+    "host": "DB_HOST",
+    "dialect": "postgres",
+    "seederStorage": "sequelize",
+    "migrationStorage": "sequelize",
+    "migrationStorageTableName": "migrations",
+    "seederStorageTableName": "seeders",
+    "define": {
+      "timestamps": true
+    }
+  },
+  "production": {
+    "username": "DB_USER",
+    "password": "DB_PASSWORD",
+    "database": "DB_NAME",
+    "host": "DB_HOST",
+    "dialect": "postgres",
+    "seederStorage": "sequelize",
+    "migrationStorage": "sequelize",
+    "migrationStorageTableName": "migrations",
+    "seederStorageTableName": "seeders",
+    "define": {
+      "timestamps": true
+    }
+  }
+}
