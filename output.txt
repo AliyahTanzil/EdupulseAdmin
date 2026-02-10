@@ -1,0 +1,12 @@
+I have completed the requested changes.
+
+1.  **Refactored `DashboardCard`**: The `DashboardCard` component was externalized from `AdminDashboard.tsx` into its own file (`apps/web-ui/src/components/dashboard/DashboardCard.tsx`).
+2.  **Adjusted Card Grid Layout**: The dashboard grid layout was changed to a fixed 5-column layout on the `AdminDashboard`.
+3.  **Resolved "Nothing Display" Issue**: The `App.tsx` file was reverted to its original state to re-enable `react-router-dom` and `MainLayout`, which were essential for the application to render correctly.
+4.  **Applied Styling**: The requested styling (`min-h-screen bg-[#f8fafc] p-8`) has been applied to the `main` content area within `apps/web-ui/src/components/layout/MainLayout.tsx`.
+
+The development server is now running. You can view the application at:
+
+👉 [http://localhost:5173/](http://localhost:5173/)
+
+Please check if the dashboard displays correctly with the updated layout and styling.
